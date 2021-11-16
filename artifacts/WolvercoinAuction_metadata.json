@@ -313,11 +313,11 @@
 			]
 		},
 		"WolvercoinAuction.sol": {
-			"keccak256": "0x2f986d8cc6271f962e32366e249576f8be08b4c0e1958cc7eb159af4ab7ef95d",
+			"keccak256": "0x91409030f3a4bb92130a35c049b631851e64bcfa14f7e1e83d9b3e0c62a3d8fc",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://8809bb1687438f21e42fb0e0c93b7b8b0b70a839e17a416bda636e2db6d6b52a",
-				"dweb:/ipfs/QmdtdftreqiJjj9s4LM1RYAexpKb6uAN18jdjKzvekK2uq"
+				"bzz-raw://533faf55ca956bf999eb3b0fb70a3de7eeee8f367fd947a3f7222decd59c6094",
+				"dweb:/ipfs/QmeanZggSdTDBzwxVQibbnrxBUXSbwKhyLm2pMVvsVdmqy"
 			]
 		}
 	},
