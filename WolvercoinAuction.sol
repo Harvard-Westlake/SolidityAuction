@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.7;
+pragma experimental ABIEncoderV2;
 
 import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
@@ -67,6 +68,14 @@ contract WolvercoinAuction is Ownable {
      *  // Transfer nft
      *  8 Transfer NFT to address of Auction highestBidder
      *      a. Requires a modifier requiring auction to be ended
+     */
+    
+    function transferNFT(ClassicAuction memory auction) public {
+        require(auction.auctionEnded, "Auction has not ended");
+    //   _wolvercoinNFTs.safeTransferFrom(address(this), auction.highestBidder, auction.nftId);
+    }
+    
+     /*
      *
      *  // Extend auction  
      *  9 Extends an auction given amount of time
@@ -75,12 +84,6 @@ contract WolvercoinAuction is Ownable {
      *  
      *
      */
-    
-    
-    IERC721 public nft;
-    uint public nftId;
-
-    address payable public seller;
 
     constructor() {
         _totalAuctionCount = 0;
@@ -99,26 +102,4 @@ contract WolvercoinAuction is Ownable {
         // sender, recipient, amount
         _wolvercoin.transferFrom(msg.sender, address(this), amount);
     }
-    
-    // Can call approve to pay WVC to any contract via http://wolvercoin.com/#nfts#0x9b37E894FB19050A9679AE8a964684B5aa0a29f8
-    // where '0x9b37E894FB19050A9679AE8a964684B5aa0a29f8' is your deployed test WovercoinAuction contract
-    function _TEST_approveWolvercoinSpend() public {
-        uint256 approvalAmount = 115792089237316195423570985008687907853269984665640564039457584007913129639935; //(2^256 - 1 )
-        nft.approve(address(this), approvalAmount);
-    }
-
-    // Wins the auction for the specified amount
-    function win() external payable {
-        nft.safeTransferFrom(address(this), msg.sender, nftId);
-        
-        // Check approval first
-        _wolvercoin.transfer(msg.sender, 10);
-    }
-    
-    function startItemAuction(
-        uint _nftId, 
-        uint256 _startTime,
-        uint256 _endTime) public onlyOwner {
-            
-        }
 }
