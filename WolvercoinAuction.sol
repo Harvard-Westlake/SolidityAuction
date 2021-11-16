@@ -91,6 +91,18 @@ contract WolvercoinAuction is Ownable {
         
     }
     
+    modifier expired (ClassicAuction memory auction) {
+        require (block.timestamp >= auction.endTime, "This auction has already ended. Too late, too slow, goodbye.");
+        _;
+    }
+    
+    function isExpired (ClassicAuction memory auction) public view returns (bool) {
+        if (block.timestamp >= auction.endTime) {
+            return true;
+        }
+        return false;
+    }
+    
     function setNFT(address _nft) public onlyOwner {
         _wolvercoinNFTs = IERC721(_nft);
     }
