@@ -93,14 +93,16 @@ contract WolvercoinAuction is Ownable {
     }
     
     modifier expired (ClassicAuction memory auction) {
-        require (block.timestamp >= auction.endTime, "This auction has already ended. Too late, too slow, goodbye.");
+        require (block.timestamp >= auction.endTime, "This auction hasn't ended yet. Maybe learn to read.");
         _;
     }
     
     function isExpired (ClassicAuction memory auction) public view returns (bool) {
         if (block.timestamp >= auction.endTime) {
+            auction.auctionEnded = true;
             return true;
         }
+        auction.auctionEnded = false;
         return false;
     }
     
