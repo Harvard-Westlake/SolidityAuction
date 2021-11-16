@@ -226,13 +226,6 @@
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "win",
-				"outputs": [],
-				"stateMutability": "payable",
-				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -313,11 +306,11 @@
 			]
 		},
 		"WolvercoinAuction.sol": {
-			"keccak256": "0x6520187083759df94b4ff2635d3f2ebb22f5fb3fcb9bc7b6cb95c76e79e0ad07",
+			"keccak256": "0x5d683b1338e2d8eb12b4d36b731c14b35e40781cd2d855299231b4027604f34f",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://dae3cfca2919bdfb8643c9a738d25555fa5481564aede31d6e960d069d8a0771",
-				"dweb:/ipfs/QmexsqqazezEMTsaC4KZ3fRfHmHatump26Svix4H45B2an"
+				"bzz-raw://23fe9045142417384b2923e50c99d7bd825bfcb794ea04b0db5f7cc6293cf46c",
+				"dweb:/ipfs/QmUR6QLj6zYxz4Rr3YSBbEzRtxRDngYAcC35EvJ2fpvnnP"
 			]
 		}
 	},

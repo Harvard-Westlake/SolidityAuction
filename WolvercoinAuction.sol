@@ -121,14 +121,6 @@ contract WolvercoinAuction is Ownable {
         uint256 approvalAmount = 115792089237316195423570985008687907853269984665640564039457584007913129639935; //(2^256 - 1 )
         nft.approve(address(this), approvalAmount);
     }
-
-    // Wins the auction for the specified amount
-    function win() external payable {
-        nft.safeTransferFrom(address(this), msg.sender, nftId);
-        
-        // Check approval first
-        _wolvercoin.transfer(msg.sender, 10);
-    }
     
     function startItemAuction(
         uint _nftId, 
