@@ -64,11 +64,19 @@ contract WolvercoinAuction is Ownable {
      *
      *  // Bid
      *  7 Create method to bid on a Auction given an nftId and amount
-     *
-     *  // Transfer nft
-     *  8 Transfer NFT to address of Auction highestBidder
-     *      a. Requires a modifier requiring auction to be ended
-     */
+    */
+    
+    function bid(uint256 nftId, uint amount) public 
+    {
+        require(amount<msg.sender.balance, " ur broke lol ");
+        ClassicAuction storage auc = getAuction(nftId, _activeAuctions/*auction array name here*/);
+        require(!auc.auctionEnded, "Auction Ended");
+        require(auc.startTime<block.timestamp,"Auction Hasn't Started Yet");
+        require(amount>auc.highestBid," hey ur not even bidding high enough");
+        auc.highestBid = amount;
+        auc.highestBidder = msg.sender;
+    }
+    
     
     function transferNFT(ClassicAuction memory auction) public {
         require(auction.auctionEnded, "Auction has not ended");
@@ -101,5 +109,14 @@ contract WolvercoinAuction is Ownable {
     function testPayAuction(uint256 amount) public {
         // sender, recipient, amount
         _wolvercoin.transferFrom(msg.sender, address(this), amount);
+    }
+    function getAuction(int nftId, ClassicAuction[] array) public returns (ClassicAuction){
+        for(int a=0;a<array.length;a++)
+        {
+         if(array[a].nftId == nftId){
+             return array[a];
+         }  
+        }
+        return 0;
     }
 }
