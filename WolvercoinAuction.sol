@@ -102,4 +102,9 @@ contract WolvercoinAuction is Ownable {
         // sender, recipient, amount
         _wolvercoin.transferFrom(msg.sender, address(this), amount);
     }
+
+    function extendAuction(uint256 extension) public {
+        endTime += extension;
+     }
+
 }
