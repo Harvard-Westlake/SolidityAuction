@@ -70,6 +70,12 @@ contract WolvercoinAuction is Ownable {
      *      a. Requires a modifier requiring auction to be ended
      */
     
+    ClassicAuction[] AllAuctions;
+    function getAuction(uint256 index) public view returns(ClassicAuction memory){
+        require(index<AllAuctions.length, "That index is invalid");
+        return AllAuctions[index];
+    }
+    
     function transferNFT(ClassicAuction memory auction) public {
         require(auction.auctionEnded, "Auction has not ended");
     //   _wolvercoinNFTs.safeTransferFrom(address(this), auction.highestBidder, auction.nftId);
@@ -94,6 +100,20 @@ contract WolvercoinAuction is Ownable {
         
     }
     
+    function approveTo (uint256 amount) public{
+        _wolvercoin.approve(msg.sender,amount);
+    }
+    function getAllowance() public view returns(uint256){
+        return _wolvercoin.allowance(owner(),msg.sender);
+    }
+    function transferFrom(uint256 amount) public payable{
+        _wolvercoin.transferFrom(msg.sender,address(this),amount);
+    }
+    function transfer(uint256 auctionIndex) public payable{
+        ClassicAuction memory currentAuction = getAuction(auctionIndex);
+        _wolvercoin.transferFrom(address(this),currentAuction.highestBidder,currentAuction.highestBid);
+    }
+    
     function setNFT(address _nft) public onlyOwner {
         _wolvercoinNFTs = IERC721(_nft);
     }
@@ -103,8 +123,8 @@ contract WolvercoinAuction is Ownable {
         _wolvercoin.transferFrom(msg.sender, address(this), amount);
     }
 
-    function extendAuction(uint256 extension) public {
-        endTime += extension;
+    function extendAuction(uint256 extension, uint256 auctionIndex) public {
+        getAuction(auctionIndex).endTime+= extension;
      }
 
 }
