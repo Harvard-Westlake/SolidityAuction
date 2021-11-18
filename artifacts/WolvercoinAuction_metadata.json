@@ -49,6 +49,101 @@
 				"type": "event"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "approveTo",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "extension",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "auctionIndex",
+						"type": "uint256"
+					}
+				],
+				"name": "extendAuction",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getAllowance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "index",
+						"type": "uint256"
+					}
+				],
+				"name": "getAuction",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "nftId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "startTime",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "endTime",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bool",
+								"name": "auctionEnded",
+								"type": "bool"
+							},
+							{
+								"internalType": "address",
+								"name": "highestBidder",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "highestBid",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct WolvercoinAuction.ClassicAuction",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "owner",
 				"outputs": [
@@ -92,6 +187,32 @@
 				"name": "testPayAuction",
 				"outputs": [],
 				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "auctionIndex",
+						"type": "uint256"
+					}
+				],
+				"name": "transfer",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "transferFrom",
+				"outputs": [],
+				"stateMutability": "payable",
 				"type": "function"
 			},
 			{
@@ -231,11 +352,11 @@
 			]
 		},
 		"WolvercoinAuction.sol": {
-			"keccak256": "0x064628e0557ef0e2df532df6cfac2c2e76c8db7344cac333094a15b2f0eebe52",
+			"keccak256": "0x32c7679a750764a9c0561f942e5fbb375b8b71027b85b0a5115c019ee83cb7d3",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://c6e76fa5a4728184028f583cb70e64475cdf074a7b0e971ec4a4b823cc942ba2",
-				"dweb:/ipfs/QmSe2xFnW5e4Q4CUtZhHiHcFAiBvrBTZmnKdXu7TwyZjK7"
+				"bzz-raw://c1fa4283008ef0cae8f65c2da311ff3a5fc6db29d2f0d72c648f43305e1d549c",
+				"dweb:/ipfs/Qma3Q92pPTxFx2NL71Br2zFXNuZNj74WjuVoXUDdLtzquc"
 			]
 		}
 	},
